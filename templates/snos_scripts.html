@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Скрипты автоматизации СНОС — LISA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="main-page">
+        <div class="title-bar">
+            <h1>Скрипты автоматизации СНОС</h1>
+            <img src="{{ url_for('static', filename='img/lisa_logo.png') }}" alt="LISA Logo" class="logo-inline">
+        </div>
+
+        <div class="scripts-grid">
+            {% for script in scripts %}
+                <div class="script-card">
+                    <h3>{{ script.name }}</h3>
+                    <p>{{ script.description }}</p>
+                    <a href="{{ url_for('run_script', script_id=script.id) }}" class="button">Запустить</a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <a class="logout-link" href="{{ url_for('index') }}">← На главную</a>
+    </div>
+</body>
+</html>

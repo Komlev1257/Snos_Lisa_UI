@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>LISA — Главная</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="main-page">
+        <div class="title-bar">
+            <h1>LISA</h1>
+            <img src="{{ url_for('static', filename='img/lisa_logo.png') }}" alt="LISA Logo" class="logo-inline">
+        </div>
+        <p class="description">
+            <strong>Local Illegal SDP Automatization</strong><br>
+            Сервис автоматизации администрирования кластеров SDP Hadoop.<br>
+        </p>
+
+        <p>Вы вошли как <strong>{{ session['ipa_user'] }}</strong></p>
+
+        <div class="buttons">
+            <a href="{{ url_for('master_script') }}" class="button">Мастер-скрипт донастройки кластера</a>
+            <a href="{{ url_for('snos_scripts') }}" class="button">Скрипты автоматизации команды СНОС</a>
+        </div>
+
+        <a class="logout-link" href="{{ url_for('logout') }}">Выйти из системы</a>
+    </div>
+</body>
+</html>

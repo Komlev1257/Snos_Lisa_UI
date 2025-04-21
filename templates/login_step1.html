@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>LISA — Вход (IPA)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-wrapper">
+            <img src="{{ url_for('static', filename='img/lisa_logo.png') }}" alt="LISA Logo" class="logo">
+        </div>
+        <h2>Вход в LISA</h2>
+        {% if error %}<div class="error">{{ error }}</div>{% endif %}
+        <form method="POST">
+            <label for="username">Логин IPA</label>
+            <input type="text" name="username" id="username" required>
+
+            <label for="password">Пароль IPA</label>
+            <input type="password" name="password" id="password" required>
+
+            <button type="submit">Продолжить</button>
+        </form>
+    </div>
+</body>
+</html>

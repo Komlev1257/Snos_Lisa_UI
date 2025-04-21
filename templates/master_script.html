@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мастер-скрипт донастройки — LISA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="main-page">
+        <div class="title-bar">
+            <h1>Мастер-скрипт донастройки</h1>
+            <img src="{{ url_for('static', filename='img/lisa_logo.png') }}" alt="LISA Logo" class="logo-inline">
+        </div>
+
+        <form method="POST" class="checklist-form">
+            <label for="ambari-url" class="form-label">Адрес Ambari:</label>
+            <input type="text" id="ambari-url" name="ambari_url" placeholder="http://ambari.local:8080" class="form-input" required>
+
+            <button type="button" id="toggle-all" class="small-button">Выбрать все</button>
+
+            <div class="checklist">
+                {% for item in checklist %}
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="checklist" value="{{ item }}">
+                        <span class="checkmark"></span>
+                        {{ item }}
+                    </label>
+                {% endfor %}
+            </div>
+
+            <button type="submit">Запустить выбранные шаги</button>
+        </form>
+
+        <a class="logout-link" href="{{ url_for('index') }}">← На главную</a>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById("toggle-all");
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        let allChecked = false;
+
+        toggleBtn.addEventListener("click", () => {
+            allChecked = !allChecked;
+            checkboxes.forEach(cb => cb.checked = allChecked);
+            toggleBtn.textContent = allChecked ? "Снять все" : "Выбрать все";
+        });
+    </script>
+
+</body>
+</html>

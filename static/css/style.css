@@ -1,0 +1,332 @@
+:root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --primary: #10b981;          /* зелёный мятный */
+    --primary-hover: #059669;
+    --text: #e6edf3;
+    --gray: #9da5b4;
+    --border: #30363d;
+    --error: #f85149;
+    --radius: 10px;
+    --shadow: 0 0 0 1px rgba(240, 246, 252, 0.05), 0 8px 24px rgba(1, 4, 9, 0.6);
+    --transition: 0.2s ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 32px 16px;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container, .main-page {
+    background-color: var(--card-bg);
+    padding: 40px 32px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.main-page {
+    max-width: 700px;
+    text-align: center;
+}
+
+h1, h2 {
+    font-size: 26px;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+.description {
+    font-size: 15px;
+    color: var(--gray);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+form label {
+    display: block;
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 5px;
+    margin-top: 16px;
+}
+
+input {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    background: #0d1117;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 15px;
+    border-radius: var(--radius);
+    outline: none;
+    transition: var(--transition);
+    margin-bottom: 20px;
+}
+
+input:focus {
+    border-color: var(--primary);
+}
+
+button {
+    width: 100%;
+    height: 44px;
+    background-color: var(--primary);
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+.error {
+    color: var(--error);
+    font-size: 14px;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.button {
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 16px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 16px;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.button:hover {
+    background-color: var(--primary-hover);
+}
+
+.logout-link {
+    margin-top: 24px;
+    display: inline-block;
+    font-size: 14px;
+    color: var(--gray);
+    text-decoration: none;
+}
+
+.logout-link:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 72px;
+    height: auto;
+    filter: drop-shadow(0 0 4px rgba(16, 185, 129, 0.4));
+}
+
+.title-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.logo-inline {
+    height: 32px;
+    width: auto;
+    filter: drop-shadow(0 0 3px rgba(16, 185, 129, 0.4));
+}
+
+
+/* Страница со скриптами */
+
+.scripts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.script-card {
+    background-color: #1f2937;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: left;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease;
+}
+
+.script-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: var(--text);
+}
+
+.script-card p {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 16px;
+}
+
+.script-card:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Чеклист — мастер-скрипт */
+
+.checklist-form {
+    margin-top: 20px;
+}
+
+.checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 480px;
+    overflow-y: auto;
+    padding-right: 6px;
+    margin-bottom: 24px;
+}
+
+/* Стилизация scrollbar под тёмную тему */
+.checklist::-webkit-scrollbar {
+    width: 8px;
+}
+
+.checklist::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.checklist::-webkit-scrollbar-thumb {
+    background-color: #2a2f3a;
+    border-radius: 4px;
+    border: 2px solid transparent;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #1f2937;
+    padding: 14px 16px;
+    border-radius: var(--radius);
+    font-size: 15px;
+    color: var(--text);
+    cursor: pointer;
+    border: 1px solid var(--border);
+    transition: background 0.2s, border 0.2s;
+}
+
+.checkbox-item:hover {
+    background-color: #27313f;
+    border-color: var(--primary);
+}
+
+.checkbox-item input[type="checkbox"] {
+    appearance: none;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+    border: 2px solid var(--border);
+    background-color: #0d1117;
+    border-radius: 4px;
+    position: relative;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.checkbox-item input[type="checkbox"]:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.checkbox-item input[type="checkbox"]::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 4px;
+    height: 8px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: 0.2s ease;
+}
+
+.checkbox-item input[type="checkbox"]:checked::after {
+    opacity: 1;
+}
+
+.small-button {
+    margin-bottom: 16px;
+    padding: 8px 14px;
+    font-size: 14px;
+    border: none;
+    border-radius: var(--radius);
+    background-color: #2d3748;
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.small-button:hover {
+    background-color: #3c475a;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: #0d1117;
+    color: var(--text);
+    font-size: 15px;
+}
